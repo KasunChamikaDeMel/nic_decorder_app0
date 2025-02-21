@@ -44,7 +44,6 @@ class NICController extends GetxController {
     int year = int.parse(nic.substring(0, 4));
     int dayCode = int.parse(nic.substring(4, 7));
     processCommon(year, dayCode);
-    voteEligibility.value = (age.value >= 18) ? 'Eligible' : 'Not Eligible';
 }
 
 

@@ -46,11 +46,6 @@ class ResultScreen extends StatelessWidget {
                                 'Age:', controller.age.value.toString(), Icons.hourglass_bottom),
                             buildInfoRow(
                                 'Gender:', controller.gender.value, Icons.person),
-                            if (controller.voteEligibility.value.isNotEmpty)
-                              buildInfoRow(
-                                  'Vote Eligibility:',
-                                  controller.voteEligibility.value,
-                                  Icons.how_to_vote),
                           ],
                         ),
                       ),
