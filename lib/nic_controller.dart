@@ -6,7 +6,6 @@ class NICController extends GetxController {
   RxString gender = ''.obs;
   RxString weekday = ''.obs;
   RxInt age = 0.obs;
-  RxString voteEligibility = ''.obs;
   RxString errorMessage = ''.obs;
 
   void decodeNIC(String nic) {
@@ -35,9 +34,7 @@ class NICController extends GetxController {
   void processOldNIC(String nic) {
     int year = 1900 + int.parse(nic.substring(0, 2));
     int dayCode = int.parse(nic.substring(2, 5));
-    String vote = nic[9].toUpperCase();
     processCommon(year, dayCode);
-    voteEligibility.value = vote == 'V' ? 'Eligible' : 'Not Eligible';
   }
 
   void processNewNIC(String nic) {
@@ -45,7 +42,6 @@ class NICController extends GetxController {
     int dayCode = int.parse(nic.substring(4, 7));
     processCommon(year, dayCode);
 }
-
 
   void processCommon(int year, int dayCode) {
     gender.value = dayCode < 500 ? 'Male' : 'Female';
@@ -65,7 +61,6 @@ class NICController extends GetxController {
   }
 }
 
-
   void calculateAge(DateTime dob) {
     DateTime now = DateTime.now();
     int years = now.year - dob.year;
@@ -80,7 +75,6 @@ class NICController extends GetxController {
     gender.value = '';
     weekday.value = '';
     age.value = 0;
-    voteEligibility.value = '';
     errorMessage.value = '';
   }
 }
