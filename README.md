@@ -1,16 +1,26 @@
 # nic_decorder_app0
 
-A new Flutter project.
+A Flutter application that decodes Sri Lankan National Identity Card (NIC) numbers to extract personal details such as birth date, age, gender, and weekday of birth. Built with Flutter and GetX for state management, the app supports both old (9-digit + letter) and new (12-digit) NIC formats.
 
-## Getting Started
+Key Features
+=> NIC Validation: Auto-detects old/new NIC formats using regex
+=> Date Conversion: Converts day-of-year to actual dates (handles leap years)
+=> User-Friendly UI: Clean Material Design with error handling and navigation
+=> Reactive Updates: Uses GetX for real-time state management
+=> Result Display: Shows birth date, age, gender, weekday, and voting eligibility (old NIC)
 
-This project is a starting point for a Flutter application.
+Tech Stack
+=> Flutter (UI Framework)
+=> GetX (State Management & Navigation)
+=> intl (Date Formatting)
 
-A few resources to get you started if this is your first Flutter project:
+Getting Started
+=> Clone the repository
+=> Run flutter pub get to install dependencies
+=> Use sample NICs:
+Old: 123456789v
+New: 123456789123
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Screenshots
+![Group 16](https://github.com/user-attachments/assets/04f9dc15-1d0a-4404-b96a-db44f7254f7f)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
