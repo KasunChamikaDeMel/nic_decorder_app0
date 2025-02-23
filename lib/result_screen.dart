@@ -4,16 +4,16 @@ import 'package:intl/intl.dart';
 import 'nic_controller.dart';
 
 class ResultScreen extends StatelessWidget {
-  final NICController controller = Get.find();
+  final NICController controller = Get.find();  // Access existing NIC controller
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Decoded NIC Info'),
-        backgroundColor: Colors.blueAccent,
-        centerTitle: true,
+        title: Text('Decoded NIC Info'), backgroundColor: Colors.blueAccent, centerTitle: true,
       ),
+
+      // Reactive UI with Obx
       body: Obx(() => Padding(
             padding: EdgeInsets.all(16.0),
             child: controller.errorMessage.isNotEmpty
@@ -55,6 +55,7 @@ class ResultScreen extends StatelessWidget {
     );
   }
 
+  // Helper method to create consistent info rows
   Widget buildInfoRow(String title, String value, IconData icon) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8),
@@ -68,7 +69,7 @@ class ResultScreen extends StatelessWidget {
           ),
           SizedBox(width: 5),
           Text(
-            value,
+            value,     // Actual value display
             style: TextStyle(fontSize: 16),
           ),
         ],
