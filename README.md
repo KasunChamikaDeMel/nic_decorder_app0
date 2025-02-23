@@ -3,7 +3,7 @@
 A Flutter application that decodes Sri Lankan National Identity Card (NIC) numbers to extract personal details such as birth date, age, gender, and weekday of birth. Built with Flutter and GetX for state management, the app supports both old (9-digit + letter) and new (12-digit) NIC formats.
 
 # Key Features
-=> NIC Validation: Auto-detects old/new NIC formats using regex
+**=> NIC Validation: ** Auto-detects old/new NIC formats using regex
 => Date Conversion: Converts day-of-year to actual dates (handles leap years)
 => User-Friendly UI: Clean Material Design with error handling and navigation
 => Reactive Updates: Uses GetX for real-time state management
