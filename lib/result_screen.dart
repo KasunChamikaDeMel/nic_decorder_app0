@@ -36,6 +36,8 @@ class ResultScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             buildInfoRow(
+                                'NIC Format:', controller.nicFormat.value, Icons.format_list_bulleted), // New row for NIC format
+                            buildInfoRow(
                                 'Birth Date:',
                                 DateFormat('yyyy-MM-dd')
                                     .format(controller.birthDate.value),

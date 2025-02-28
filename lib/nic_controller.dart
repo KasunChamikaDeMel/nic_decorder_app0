@@ -7,13 +7,16 @@ class NICController extends GetxController {
   RxString weekday = ''.obs;
   RxInt age = 0.obs;
   RxString errorMessage = ''.obs;
+  RxString nicFormat = ''.obs; // New variable to store NIC format
 
   void decodeNIC(String nic) {          // Main decoding entry point
     resetValues();
     try {
       if (isOldFormat(nic)) {
+        nicFormat.value = 'Old NIC Format'; // Set NIC format
         processOldNIC(nic);
       } else if (isNewFormat(nic)) {
+        nicFormat.value = 'New NIC Format'; // Set NIC format
         processNewNIC(nic);
       } else {
         throw FormatException('Invalid NIC format');
@@ -45,7 +48,7 @@ class NICController extends GetxController {
     int year = int.parse(nic.substring(0, 4));
     int dayCode = int.parse(nic.substring(4, 7));
     processCommon(year, dayCode);
-}
+  }
   
   // Common processing for both old and new formats
   void processCommon(int year, int dayCode) {
@@ -56,16 +59,16 @@ class NICController extends GetxController {
 
   // Convert day to date
   void calculateDate(int year, int dayOfYear) {
-  try {
-    final date = DateTime(year).add(Duration(days: dayOfYear - 1));
-    if (date.year != year) throw Exception('Invalid day');
-    birthDate.value = date;
-    weekday.value = DateFormat('EEEE').format(date);
-    calculateAge(date);
-  } catch (e) {
-    errorMessage.value = 'Invalid date: $dayOfYear';
+    try {
+      final date = DateTime(year).add(Duration(days: dayOfYear - 1));
+      if (date.year != year) throw Exception('Invalid day');
+      birthDate.value = date;
+      weekday.value = DateFormat('EEEE').format(date);
+      calculateAge(date);
+    } catch (e) {
+      errorMessage.value = 'Invalid date: $dayOfYear';
+    }
   }
-}
 
   // Calculate age from birth date
   void calculateAge(DateTime dob) {
@@ -84,5 +87,6 @@ class NICController extends GetxController {
     weekday.value = '';
     age.value = 0;
     errorMessage.value = '';
+    nicFormat.value = ''; // Reset NIC format
   }
 }
